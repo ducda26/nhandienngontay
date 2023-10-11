@@ -16,8 +16,15 @@ for i in lst:
 # print(lst_2[0].shape)
 pTime=0
 
+detector =htm.handDetector(detectionCon=0.55)
+#0.75 độ chính xác 75%
+
 while True:
     ret, frame = cap.read()
+    frame = detector.findHands(frame)
+    lmList = detector.findPosition(frame, draw=False) # phát hiện vị trí
+    print(lmList)
+    
     h, w, c = lst_2[0].shape
     frame[0:h, 0:w] = lst_2[0]
 
