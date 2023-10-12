@@ -55,8 +55,12 @@ while True:
 
     
     
-    h, w, c = lst_2[0].shape
-    frame[0:h, 0:w] = lst_2[0]
+        h, w, c = lst_2[0].shape
+        frame[0:h, 0:w] = lst_2[0]
+    
+        #Vẽ thêm hình chữ nhật hiện số ngón tay
+        cv2.rectangle(frame,(0,200),(150,400),(0,255,0),-1)
+        cv2.putText(frame, str(songontay),(30,390),cv2.FONT_HERSHEY_PLAIN,10,(255,0,0),3)
 
     # Viết ra FPS
     # trả về số giây, tính từ 0:0:00 ngày 1/1/1970 theo giờ  utc , gọi là(thời điểm bắt đầu thời gian)
