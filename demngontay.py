@@ -29,7 +29,16 @@ while True:
     if len(lmList) != 0:
         fingers = []
         
-        #Viết cho ngón dài:
+        #Viết cho ngón cái(ý tưởng là 4 điểm ở bên trái hay 2 điểm ở bên phải)
+        if lmList[fingerid[0]][1] < lmList[fingerid[0]-1][1]:
+            fingers.append(1)
+            print(lmList[fingerid[0]][1])
+            print(lmList[fingerid[0]-1][1])
+        else:
+            fingers.append(0)     
+        print(lmList)               
+        
+        #Viết cho 4 ngón dài:
         for id in range(1,5):
             print(id)
             if lmList[fingerid[id]][2] < lmList[fingerid[id] - 2][2]:
