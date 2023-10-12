@@ -11,7 +11,7 @@ lst = os.listdir(FolderPath)
 lst_2 = []
 for i in lst:
     image = cv2.imread(f'{FolderPath}/{i}')
-    print(f'{FolderPath}/{i}')
+    # print(f'{FolderPath}/{i}')
     lst_2.append(image)
 # print(lst_2[0].shape)
 pTime = 0
@@ -32,8 +32,8 @@ while True:
         #Viết cho ngón cái(ý tưởng là 4 điểm ở bên trái hay 2 điểm ở bên phải)
         if lmList[fingerid[0]][1] < lmList[fingerid[0]-1][1]:
             fingers.append(1)
-            print(lmList[fingerid[0]][1])
-            print(lmList[fingerid[0]-1][1])
+            # print(lmList[fingerid[0]][1])
+            # print(lmList[fingerid[0]-1][1])
         else:
             fingers.append(0)     
         print(lmList)               
@@ -43,8 +43,8 @@ while True:
             print(id)
             if lmList[fingerid[id]][2] < lmList[fingerid[id] - 2][2]:
                 fingers.append(1) #ngón tay đang mở  
-                print(lmList[fingerid[id]][2])
-                print(lmList[fingerid[id]-2][2])
+                # print(lmList[fingerid[id]][2])
+                # print(lmList[fingerid[id]-2][2])
                             
             else:
                 fingers.append(0)
@@ -55,8 +55,9 @@ while True:
 
     
     
-        h, w, c = lst_2[0].shape
-        frame[0:h, 0:w] = lst_2[0]
+        h, w, c = lst_2[songontay-1].shape
+        # print(lst_2[0].shape)
+        frame[0:h, 0:w] = lst_2[songontay-1]
     
         #Vẽ thêm hình chữ nhật hiện số ngón tay
         cv2.rectangle(frame,(0,200),(150,400),(0,255,0),-1)
